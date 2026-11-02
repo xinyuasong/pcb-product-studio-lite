@@ -1,0 +1,14 @@
+schema_version = "1.0.0"
+
+id = "pcb_studio"
+version = "0.1.8"
+name = "PCB Product Studio Lite"
+tagline = "Studio lights, PCB materials and product-shot cameras for boards"
+maintainer = "Richard Song"
+type = "add-on"
+
+tags = ["Render", "Lighting", "Material", "Camera"]
+
+blender_version_min = "4.2.0"
+
+license = ["SPDX:GPL-3.0-or-later"]

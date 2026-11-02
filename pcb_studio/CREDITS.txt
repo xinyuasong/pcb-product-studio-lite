@@ -1,0 +1,7 @@
+PCB Product Studio - credits
+
+Code: Richard Song, GPL-3.0-or-later (see LICENSE).
+Materials, lighting, backdrop: procedural, made for this add-on. No third-party textures,
+HDRIs, fonts or 3D models are bundled.
+Built for Blender (blender.org), which is a registered trademark of the Blender Foundation.
+This add-on is not affiliated with or endorsed by the Blender Foundation or the KiCad project.
