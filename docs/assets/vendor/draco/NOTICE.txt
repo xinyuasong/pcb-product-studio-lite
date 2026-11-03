@@ -1,0 +1,1 @@
+Draco decoder files (draco_decoder.js, draco_decoder.wasm, draco_wasm_wrapper.js) are from Google's Draco project (https://github.com/google/draco), distributed with three.js, under the Apache License 2.0 (see LICENSE-Apache-2.0.txt).

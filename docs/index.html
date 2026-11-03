@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' data: blob:; worker-src 'self' blob:; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>PCB Product Studio</title>
+<meta name="description" content="A Blender add-on that turns a KiCad board into a studio product render: solder mask, pad and silkscreen materials, lights and camera in one click.">
+<meta property="og:title" content="PCB Product Studio">
+<meta property="og:description" content="Your KiCad board, shot like a product. A Blender add-on with PCB materials, studio lighting and product-shot cameras.">
+<meta property="og:image" content="assets/img/nimbus_s3_dark_hero_hero-1600.webp">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <a class="mark" href="#top" aria-label="PCB Product Studio, back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="8" cy="12" r="1.6"/><circle cx="16" cy="12" r="1.6"/><path d="M9.6 12h4.8"/></svg>
+    <span>PCB Product Studio</span>
+  </a>
+  <nav aria-label="Main">
+    <a href="#renders">Renders</a>
+    <a href="#how">How it works</a>
+    <a href="#editions">Editions</a>
+    <a class="nav-buy" href="https://pcbproductstudio.gumroad.com/l/pcb-product-studio">Buy Full</a>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- The board: pinned while you scroll the first three screens -->
+  <section class="stage" id="top" aria-label="Interactive 3D board">
+    <div class="pin">
+      <canvas id="board" aria-label="3D model of a demo circuit board. Drag to turn it." role="img"></canvas>
+      <img class="poster" id="poster" src="assets/img/nimbus_s3_dark_hero_hero-1600.webp" alt="" aria-hidden="true">
+      <p class="loading" id="loading" role="status">Loading the board…</p>
+
+      <div class="hero-copy" id="copy0">
+        <h1>Your KiCad board, shot like a&nbsp;product.</h1>
+        <p class="lede">PCB Product Studio is a Blender add-on. Export your board as GLB, click Quick product shot, and it sets up solder mask, pad and silkscreen materials, studio lights and a&nbsp;camera.</p>
+        <div class="ctas">
+          <a class="btn primary" href="https://pcbproductstudio.gumroad.com/l/lite">Download Lite, free</a>
+          <a class="btn" href="https://pcbproductstudio.gumroad.com/l/pcb-product-studio">Buy Full, US$19</a>
+        </div>
+      </div>
+
+      <fieldset class="masks" id="masks">
+        <legend>Solder mask</legend>
+        <div class="chips" role="radiogroup" aria-label="Solder mask colour">
+          <button type="button" role="radio" aria-checked="true" data-mask="green" title="Green"><span>Green</span></button>
+          <button type="button" role="radio" aria-checked="false" data-mask="black" title="Black"><span>Black</span></button>
+          <button type="button" role="radio" aria-checked="false" data-mask="blue" title="Blue"><span>Blue</span></button>
+          <button type="button" role="radio" aria-checked="false" data-mask="red" title="Red (Full)"><span>Red</span></button>
+          <button type="button" role="radio" aria-checked="false" data-mask="white" title="White (Full)"><span>White</span></button>
+          <button type="button" role="radio" aria-checked="false" data-mask="purple" title="Purple (Full)"><span>Purple</span></button>
+          <button type="button" role="radio" aria-checked="false" data-mask="yellow" title="Yellow (Full)"><span>Yellow</span></button>
+        </div>
+        <p class="chip-note">Green, black and blue are in Lite. Red, white, purple and yellow come with Full.</p>
+      </fieldset>
+
+      <p class="hint" id="hint">Drag to turn the board. Scroll to take it apart.</p>
+    </div>
+
+    <div class="beats" aria-hidden="false">
+      <div class="beat" data-beat="1">
+        <h2>Pull it apart.</h2>
+        <p>Exploded views lift every part off the board. Keep it as a still, or animate the lift for a launch video. Exploded views are in Full.</p>
+      </div>
+      <div class="beat" data-beat="2">
+        <h2>Then put it back.</h2>
+        <p>Turntables, hero, top-down, low and macro cameras, and four lighting looks are built in. Everything it makes is a normal Blender object you can still tweak.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="renders" id="renders">
+    <div class="wrap">
+      <h2>Rendered with the add-on</h2>
+      <p class="sub">Straight out of Cycles on a laptop GPU, no retouching. The boards are demo designs made for this page.</p>
+    </div>
+    <div class="grid">
+      <figure class="r1"><img src="assets/img/nimbus_s3_dark_hero_hero-1600.webp" srcset="assets/img/nimbus_s3_dark_hero_hero-900.webp 900w, assets/img/nimbus_s3_dark_hero_hero-1600.webp 1600w" sizes="(min-width: 900px) 62vw, 100vw" alt="A green ESP32 board on a dark backdrop with a rim light" loading="lazy" width="1600" height="900"><figcaption>Dark hero look, hero camera</figcaption></figure>
+      <figure class="r2"><img src="assets/img/kestrel_2040_white_ecom_hero-1600.webp" srcset="assets/img/kestrel_2040_white_ecom_hero-900.webp 900w, assets/img/kestrel_2040_white_ecom_hero-1600.webp 1600w" sizes="(min-width: 900px) 36vw, 100vw" alt="A narrow microcontroller board on a white e-commerce backdrop" loading="lazy" width="1600" height="900"><figcaption>White e-commerce look</figcaption></figure>
+      <figure class="r3"><img src="assets/img/kestrel_2040_tech_glow_hero_exploded-1600.webp" srcset="assets/img/kestrel_2040_tech_glow_hero_exploded-900.webp 900w, assets/img/kestrel_2040_tech_glow_hero_exploded-1600.webp 1600w" sizes="(min-width: 900px) 36vw, 100vw" alt="The same board exploded, with components floating above it under cyan light" loading="lazy" width="1600" height="900"><figcaption>Tech glow look, exploded</figcaption></figure>
+      <figure class="r4"><img src="assets/img/breeze_studio_soft_hero-1600.webp" srcset="assets/img/breeze_studio_soft_hero-900.webp 900w, assets/img/breeze_studio_soft_hero-1600.webp 1600w" sizes="(min-width: 900px) 62vw, 100vw" alt="A small sensor board under soft studio light" loading="lazy" width="1600" height="900"><figcaption>Studio soft look, the one in Lite</figcaption></figure>
+    </div>
+    <div class="wrap video">
+      <video controls preload="none" poster="assets/video/demo-poster.webp" width="1920" height="1080">
+        <source src="assets/video/demo.mp4" type="video/mp4">
+      </video>
+      <p class="sub">The whole flow in 35 seconds.</p>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>
+          <h3>Export your board from KiCad</h3>
+          <p>One command gives a GLB with copper, pads, mask and silkscreen as separate layers.</p>
+          <pre><code>kicad-cli pcb export glb -f -o board.glb --subst-models --include-tracks --include-pads --include-zones --include-silkscreen --include-soldermask board.kicad_pcb</code></pre>
+        </li>
+        <li>
+          <h3>Import it and click Quick product shot</h3>
+          <p>The add-on lays the board flat, gives every layer a PCB material, builds a studio and frames a camera.</p>
+        </li>
+        <li>
+          <h3>Press F12</h3>
+          <p>A 1080p draft took 10 to 30 seconds in our test on an RTX 5060 laptop. Your time will vary with your GPU and board.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="editions" id="editions">
+    <div class="wrap">
+      <h2>Lite or Full</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col"></th><th scope="col">Lite, free</th><th scope="col">Full, US$19</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Lighting looks</th><td>Studio soft</td><td>Plus white e-commerce, dark hero, tech glow</td></tr>
+            <tr><th scope="row">Cameras</th><td>Hero, top-down</td><td>Plus low angle, front, macro with depth of field</td></tr>
+            <tr><th scope="row">Solder mask colours</th><td>Green, black, blue</td><td>Plus red, white, purple, yellow</td></tr>
+            <tr><th scope="row">Exploded views</th><td>No</td><td>Still and animated</td></tr>
+            <tr><th scope="row">Turntable</th><td>Yes</td><td>Yes</td></tr>
+            <tr><th scope="row">Render sizes</th><td>HD, square</td><td>Plus QHD, 4K, 4:5 social, 3:2 photo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ctas">
+        <a class="btn primary" href="https://pcbproductstudio.gumroad.com/l/lite">Download Lite, free</a>
+        <a class="btn" href="https://pcbproductstudio.gumroad.com/l/pcb-product-studio">Buy Full, US$19</a>
+      </div>
+      <p class="sub">Tested on Blender 4.2 LTS and 5.2 with KiCad 10. Renders with Cycles; a GPU is recommended. The add-on is a visualization tool, not a design check.</p>
+    </div>
+  </section>
+
+  <section class="budget">
+    <div class="wrap">
+      <h2>The board at the top of this page weighs <span id="glb-size">336 KB</span>.</h2>
+      <p>A plain export from Blender was 3.5 MB. We shrank it with GLB Budget Optimiser, our second Blender add-on, without dropping a single triangle. Pick a file-size target and it shrinks textures and meshes only as far as it needs to. Coming soon.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Questions or a board that won't import: <a href="mailto:pcbproductstudio@gmail.com">pcbproductstudio@gmail.com</a></p>
+    <p>The add-on is free software under the GNU GPL v3 or later. <a href="https://github.com/xinyuasong/pcb-product-studio-lite">Lite source on GitHub</a>.</p>
+    <p class="fine">Not affiliated with or endorsed by the Blender Foundation or the KiCad project. Blender is a registered trademark of the Blender Foundation. 3D viewer built with three.js (MIT) and the Draco decoder (Apache 2.0); type set in Archivo (SIL Open Font License).</p>
+  </div>
+</footer>
+
+<script type="module" src="assets/main.js"></script>
+</body>
+</html>
