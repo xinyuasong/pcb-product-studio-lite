@@ -39,8 +39,8 @@
       <p class="loading" id="loading" role="status">Loading the board…</p>
 
       <div class="hero-copy" id="copy0">
-        <h1>Your KiCad board, shot like a&nbsp;product.</h1>
-        <p class="lede">PCB Product Studio is a Blender add-on. Export your board as GLB, click Quick product shot, and it sets up solder mask, pad and silkscreen materials, studio lights and a&nbsp;camera.</p>
+        <h1><span>Your PCB,</span> <span>shot like</span> <span>a product.</span></h1>
+        <p class="lede">A Blender add-on for KiCad boards. Export a GLB, click once, and get real solder mask, gold pads, crisp silkscreen, studio lights and a camera that’s already&nbsp;framed.</p>
         <div class="ctas">
           <a class="btn primary" href="https://pcbproductstudio.gumroad.com/l/lite">Download Lite, free</a>
           <a class="btn" href="https://pcbproductstudio.gumroad.com/l/pcb-product-studio">Buy Full, US$19</a>
@@ -78,14 +78,14 @@
 
   <section class="renders" id="renders">
     <div class="wrap">
-      <h2>Rendered with the add-on</h2>
-      <p class="sub">Straight out of Cycles on a laptop GPU, no retouching. The boards are demo designs made for this page.</p>
+      <h2>Four looks. Zero retouching.</h2>
+      <p class="sub">Every image here came straight out of Cycles on a laptop GPU. The boards are demo designs made for this page.</p>
     </div>
-    <div class="grid">
-      <figure class="r1"><img src="assets/img/nimbus_s3_dark_hero_hero-1600.webp" srcset="assets/img/nimbus_s3_dark_hero_hero-900.webp 900w, assets/img/nimbus_s3_dark_hero_hero-1600.webp 1600w" sizes="(min-width: 900px) 62vw, 100vw" alt="A green ESP32 board on a dark backdrop with a rim light" loading="lazy" width="1600" height="900"><figcaption>Dark hero look, hero camera</figcaption></figure>
-      <figure class="r2"><img src="assets/img/kestrel_2040_white_ecom_hero-1600.webp" srcset="assets/img/kestrel_2040_white_ecom_hero-900.webp 900w, assets/img/kestrel_2040_white_ecom_hero-1600.webp 1600w" sizes="(min-width: 900px) 36vw, 100vw" alt="A narrow microcontroller board on a white e-commerce backdrop" loading="lazy" width="1600" height="900"><figcaption>White e-commerce look</figcaption></figure>
-      <figure class="r3"><img src="assets/img/kestrel_2040_tech_glow_hero_exploded-1600.webp" srcset="assets/img/kestrel_2040_tech_glow_hero_exploded-900.webp 900w, assets/img/kestrel_2040_tech_glow_hero_exploded-1600.webp 1600w" sizes="(min-width: 900px) 36vw, 100vw" alt="The same board exploded, with components floating above it under cyan light" loading="lazy" width="1600" height="900"><figcaption>Tech glow look, exploded</figcaption></figure>
-      <figure class="r4"><img src="assets/img/breeze_studio_soft_hero-1600.webp" srcset="assets/img/breeze_studio_soft_hero-900.webp 900w, assets/img/breeze_studio_soft_hero-1600.webp 1600w" sizes="(min-width: 900px) 62vw, 100vw" alt="A small sensor board under soft studio light" loading="lazy" width="1600" height="900"><figcaption>Studio soft look, the one in Lite</figcaption></figure>
+    <div class="gallery">
+      <figure><img src="assets/img/nimbus_s3_dark_hero_hero-1600.webp" srcset="assets/img/nimbus_s3_dark_hero_hero-900.webp 900w, assets/img/nimbus_s3_dark_hero_hero-1600.webp 1600w" sizes="(min-width: 900px) 46vw, 100vw" alt="A black ESP32 board on a dark backdrop with a rim light" loading="lazy" width="1600" height="900"><figcaption>Dark hero</figcaption></figure>
+      <figure><img src="assets/img/kestrel_2040_white_ecom_hero-1600.webp" srcset="assets/img/kestrel_2040_white_ecom_hero-900.webp 900w, assets/img/kestrel_2040_white_ecom_hero-1600.webp 1600w" sizes="(min-width: 900px) 46vw, 100vw" alt="A narrow green microcontroller board on a white backdrop" loading="lazy" width="1600" height="900"><figcaption>White e-commerce</figcaption></figure>
+      <figure><img src="assets/img/kestrel_2040_tech_glow_hero_exploded-1600.webp" srcset="assets/img/kestrel_2040_tech_glow_hero_exploded-900.webp 900w, assets/img/kestrel_2040_tech_glow_hero_exploded-1600.webp 1600w" sizes="(min-width: 900px) 46vw, 100vw" alt="The same board exploded, with components floating above it under cyan light" loading="lazy" width="1600" height="900"><figcaption>Tech glow, exploded</figcaption></figure>
+      <figure><img src="assets/img/breeze_studio_soft_hero-1600.webp" srcset="assets/img/breeze_studio_soft_hero-900.webp 900w, assets/img/breeze_studio_soft_hero-1600.webp 1600w" sizes="(min-width: 900px) 46vw, 100vw" alt="A small purple sensor board under soft studio light" loading="lazy" width="1600" height="900"><figcaption>Studio soft, included in Lite</figcaption></figure>
     </div>
     <div class="wrap video">
       <video controls preload="none" poster="assets/video/demo-poster.webp" width="1920" height="1080">
@@ -118,23 +118,35 @@
 
   <section class="editions" id="editions">
     <div class="wrap">
-      <h2>Lite or Full</h2>
-      <div class="table-scroll">
-        <table>
-          <thead><tr><th scope="col"></th><th scope="col">Lite, free</th><th scope="col">Full, US$19</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">Lighting looks</th><td>Studio soft</td><td>Plus white e-commerce, dark hero, tech glow</td></tr>
-            <tr><th scope="row">Cameras</th><td>Hero, top-down</td><td>Plus low angle, front, macro with depth of field</td></tr>
-            <tr><th scope="row">Solder mask colours</th><td>Green, black, blue</td><td>Plus red, white, purple, yellow</td></tr>
-            <tr><th scope="row">Exploded views</th><td>No</td><td>Still and animated</td></tr>
-            <tr><th scope="row">Turntable</th><td>Yes</td><td>Yes</td></tr>
-            <tr><th scope="row">Render sizes</th><td>HD, square</td><td>Plus QHD, 4K, 4:5 social, 3:2 photo</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="ctas">
-        <a class="btn primary" href="https://pcbproductstudio.gumroad.com/l/lite">Download Lite, free</a>
-        <a class="btn" href="https://pcbproductstudio.gumroad.com/l/pcb-product-studio">Buy Full, US$19</a>
+      <h2>Start free. Go Full when it’s launch day.</h2>
+      <div class="plans">
+        <article class="plan lite">
+          <h3>Lite</h3>
+          <p class="price">Free</p>
+          <p class="pitch">Everything you need for a clean board shot.</p>
+          <ul>
+            <li>Studio soft lighting</li>
+            <li>Hero and top-down cameras</li>
+            <li>Green, black and blue solder mask</li>
+            <li>HASL, ENIG and bare-copper pads</li>
+            <li>Turntable animation</li>
+            <li>HD and square renders</li>
+          </ul>
+          <a class="btn" href="https://pcbproductstudio.gumroad.com/l/lite">Download Lite</a>
+        </article>
+        <article class="plan full">
+          <h3>Full</h3>
+          <p class="price">US$19 <span>one-time</span></p>
+          <p class="pitch">Everything in Lite, plus the shots that sell a product.</p>
+          <ul>
+            <li>Exploded views, still and animated</li>
+            <li>White e-commerce, dark hero and tech glow lighting</li>
+            <li>Low angle, front and macro cameras with depth of field</li>
+            <li>Red, white, purple and yellow solder mask</li>
+            <li>QHD, 4K, 4:5 social and 3:2 photo sizes</li>
+          </ul>
+          <a class="btn light" href="https://pcbproductstudio.gumroad.com/l/pcb-product-studio">Buy Full, US$19</a>
+        </article>
       </div>
       <p class="sub">Tested on Blender 4.2 LTS and 5.2 with KiCad 10. Renders with Cycles; a GPU is recommended. The add-on is a visualization tool, not a design check.</p>
     </div>

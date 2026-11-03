@@ -124,7 +124,8 @@ function start() {
     });
     const maxD = Math.max(...parts.map((p) => p.d), 1e-6);
     parts.forEach((p) => {
-      p.delay = (p.d / maxD) * 0.35;
+      p.delay = (p.d / maxD) * 0.45;
+      p.spin = Math.sin(p.d * 977) * 0.06;
       p.lift = (0.006 + p.h * 1.6) ;             // in model units (metres before scaling)
     });
 
@@ -192,17 +193,21 @@ function start() {
     if (!w || !h) return;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
-    camera.updateProjectionMatrix();
     const narrow = w / h < 0.9;
-    const dist = narrow ? 5.4 : 3.7;
+    const dist = narrow ? 6.6 : 3.7;
     if (!camera.userData.placed) {
       camera.position.set(dist * 0.62, dist * 0.62, dist * 0.48);
       camera.userData.placed = true;
     } else {
       camera.position.setLength(dist);
     }
-    // keep the board right of the headline on wide screens, above the copy on narrow ones
-    controls.target.set(narrow ? 0 : -0.55, narrow ? -0.78 : -0.04, 0);
+    // orbit around the board's own centre, so it spins on the spot; slide the picture on screen with a view
+    // offset instead (board right of the headline on wide screens, above the copy on narrow ones)
+    controls.target.set(0, 0.03, 0);
+    const ox = narrow ? 0 : -w * 0.2;
+    const oy = narrow ? h * 0.27 : -h * 0.05;
+    camera.setViewOffset(w, h, ox, oy, w, h);
+    camera.updateProjectionMatrix();
     controls.update();
   }
   window.addEventListener('resize', resize);
@@ -219,14 +224,20 @@ function start() {
     mats.pcb_mask.color.lerp(target, k);
     mats.pcb_silk.color.lerp(silkTarget, k);
 
-    // up between 18% and 48% of the stage, down again between 74% and 96%
-    const want = smooth(0.18, 0.48, scrollP) * (1 - smooth(0.74, 0.96, scrollP));
-    explode += (want - explode) * (reduceMotion ? 1 : k);
+    // Scroll sets a target; the board follows it with a soft spring, so each wheel notch becomes a glide.
+    // Up between 12% and 50% of the stage, held, then back down between 70% and 96%.
+    const want = smooth(0.12, 0.5, scrollP) * (1 - smooth(0.7, 0.96, scrollP));
+    const ks = reduceMotion ? 1 : 1 - Math.exp(-dt * 3.2);
+    explode += (want - explode) * ks;
     for (const p of parts) {
-      const e = smooth(p.delay, p.delay + 0.65, explode);
-      p.node.position.y = p.base + p.lift * e * 3.2;
+      // every part has its own window, so they peel off one after another instead of all at once
+      const e = smooth(p.delay, p.delay + 0.55, explode);
+      const ease = 1 - Math.pow(1 - e, 3);
+      p.node.position.y = p.base + p.lift * ease * 3.2;
+      p.node.rotation.z = (p.spin || 0) * ease;
     }
-    model.rotation.x = -0.18 * explode;
+    model.rotation.x = -0.2 * explode;
+    model.position.y = 0.06 * explode;
 
     controls.update();
     renderer.render(scene, camera);
